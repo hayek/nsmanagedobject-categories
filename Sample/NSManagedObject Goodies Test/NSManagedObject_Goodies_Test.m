@@ -150,6 +150,9 @@
     Contact* contact = [Contact insertWithDictionary:contactDict error:&err commit:YES];
     STAssertNil(err, @"There should be no error");
     STAssertTrue(contact != nil, @"User must be persisted");
+    
+    STAssertTrue([contact.address.city isEqualToString:@"New York"], @"Wrong address");
+    STAssertTrue(contact.phoneNumbers.count == 2, @"A phone number missing");
 }
 
 @end
