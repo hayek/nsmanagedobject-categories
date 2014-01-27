@@ -8,8 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (CamelCaseConversion)
+@interface NSString (StringTools)
+
 - (NSString *)toCamelCase;
 - (NSString *)toUnderscore;
+- (NSString *) capitalizeFirstLetter;
+- (NSString *) lowercaseFirstLetter;
+- (NSString *) humanize;
+- (NSString*)pluralToSingle;
+- (BOOL)isVowel;
 
 @end

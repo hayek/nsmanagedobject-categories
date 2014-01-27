@@ -16,7 +16,7 @@
 #import "NSManagedObject+Delete.h"
 #import "NSManagedObject+FromDictionary.h"
 #import "NSManagedObject+SyncTimestamp.h"
-#import "NSString+CamelCaseConversion.h"
+#import "NSString+StringTools.h"
 #import "NSManagedObjectContext+OnelineFetch.h"
 
 #endif

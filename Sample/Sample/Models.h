@@ -12,5 +12,8 @@
 #import "Group.h"
 #import "User.h"
 #import "DataVersion.h"
+#import "Contact.h"
+#import "PhoneNumber.h"
+#import "Address.h"
 
 #endif

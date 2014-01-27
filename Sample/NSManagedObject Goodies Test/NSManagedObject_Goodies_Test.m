@@ -51,7 +51,7 @@
     ////
     NSDictionary *user = @{@"name": @"John Doe", @"emails":@[@"john@doe.com", @"john.doe@gmail.com"]};
     NSError *err;
-    User *u = [User insertWithDictionary:user error:&err];
+    User *u = [User insertWithDictionary:user error:&err commit:YES];
     STAssertNil(err, @"There should be no error");
     STAssertTrue(u != nil, @"User must be persisted");
     
@@ -74,7 +74,7 @@
     //// Key format conversion (under_score and camelCase) & Data conversion (NSDate)
     ////
     NSDictionary *group = @{@"title":@"My best friends", @"created_at":@(1354652336)};
-    Group *g = [Group insertWithDictionary:group error:&err];
+    Group *g = [Group insertWithDictionary:group error:&err commit:YES];
     STAssertNil(err, @"There should be no error");
     STAssertNotNil(g, @"New group should  not be nil");
     STAssertTrue([[Group findWithPredicate:nil] count] == 1, @"");
@@ -89,7 +89,7 @@
     ////
     
     NSDictionary *group2 = @{@"title":group[@"title"], @"created_at":@(1354653107)};
-    Group *g2 = [Group insertWithDictionary:group2 uniqueKey:@"title" error:&err];
+    Group *g2 = [Group insertWithDictionary:group2 uniqueKey:@"title" error:&err commit:YES];
     STAssertNil(g2, @"Duplicate key records can't be exist simultaneously");
     
     NSArray *groups = [Group findWithPredicate:nil];
@@ -99,10 +99,10 @@
     //// Default unique key test (`id` or `_id`)
     ////
     NSDictionary *group3 = @{@"title":@"Group 3", @"id":@(42), @"created_at":@(1354653107)};
-    Group *g3 = [Group updateWithDictionary:group3];
+    Group *g3 = [Group updateWithDictionary:group3 commit:YES];
     
     NSDictionary *group4 = @{@"title":@"Group 4", @"id":@(42), @"created_at":@(1354653108)};
-    Group *g4 = [Group updateWithDictionary:group4];
+    Group *g4 = [Group updateWithDictionary:group4 commit:YES];
     
     STAssertTrue([g4.title isEqualToString:group4[@"title"]], @"updated comparing id");
     
@@ -113,10 +113,10 @@
     //// Multi key test (these conditions are concatenated by `AND`)
     ////
     NSDictionary *group5 = @{@"title":@"Group 5", @"id":@(43), @"created_at":@(1354653107)};
-    Group *g5 = [Group updateWithDictionary:group5 uniqueKeys:@[@"id", @"title"] upsert:YES error:nil];
+    Group *g5 = [Group updateWithDictionary:group5 uniqueKeys:@[@"id", @"title"] upsert:YES error:nil commit:YES];
     
     NSDictionary *group6 = @{@"title":@"Group 6", @"id":@(43), @"created_at":@(1354653108)};
-    Group *g6 = [Group updateWithDictionary:group6 uniqueKeys:@[@"id", @"title"] upsert:YES error:nil];
+    Group *g6 = [Group updateWithDictionary:group6 uniqueKeys:@[@"id", @"title"] upsert:YES error:nil commit:YES];
     
     STAssertTrue([[Group findWithPredicate:@"SELF.id == 43"] count] == 2, @"Multikey should be concatenated with AND");
     
@@ -129,6 +129,27 @@
     NSLog(@"err : %@", err.description);
     g2 = [Group findWithPredicate:@"title == %@", @"friends"][0];
     STAssertEqualObjects(g2.title, @"friends", @"group must be updated");
+}
+
+-(void)testContact
+{
+    NSDictionary* contactDict = @{@"name": @"John Smith",
+                              @"age": @25 ,
+                              @"address":@{
+                                      @"city": @"New York",
+                                      @"state": @"NY"},
+                              @"phoneNumbers":@[
+                                      @{@"type": @"home",
+                                        @"number": @3454353},
+                                      @{@"type": @"fax",
+                                        @"number": @1235},
+                                      ]
+                              };
+    
+    NSError *err;
+    Contact* contact = [Contact insertWithDictionary:contactDict error:&err commit:YES];
+    STAssertNil(err, @"There should be no error");
+    STAssertTrue(contact != nil, @"User must be persisted");
 }
 
 @end

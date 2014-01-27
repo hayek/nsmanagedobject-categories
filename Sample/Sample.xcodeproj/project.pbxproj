@@ -19,7 +19,6 @@
 		37D93C80166E5B9B00026ED5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D93C7F166E5B9B00026ED5 /* Default-568h@2x.png */; };
 		37D93C83166E5B9B00026ED5 /* Sample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37D93C81166E5B9B00026ED5 /* Sample.xcdatamodeld */; };
 		37D93C8B166E5BE200026ED5 /* NSManagedObject+TemporaryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D93C8A166E5BE200026ED5 /* NSManagedObject+TemporaryObject.m */; };
-		37D93C90166E6DBA00026ED5 /* NSString+CamelCaseConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D93C8F166E6DBA00026ED5 /* NSString+CamelCaseConversion.m */; };
 		37D93C94166E6E6100026ED5 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D93C93166E6E6100026ED5 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		37D93C97166E6EA400026ED5 /* NSManagedObject+FromDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D93C96166E6EA400026ED5 /* NSManagedObject+FromDictionary.m */; };
 		37D93C99166E7B7300026ED5 /* libicucore.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D93C98166E7B7300026ED5 /* libicucore.A.dylib */; };
@@ -32,10 +31,14 @@
 		37D93CB3166E895A00026ED5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37D93C69166E5B9B00026ED5 /* Foundation.framework */; };
 		37D93CB9166E895A00026ED5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37D93CB7166E895A00026ED5 /* InfoPlist.strings */; };
 		37D93CBC166E895A00026ED5 /* NSManagedObject_Goodies_Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D93CBB166E895A00026ED5 /* NSManagedObject_Goodies_Test.m */; };
-		37D93CC6166E8C4000026ED5 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D93CC5166E8C4000026ED5 /* Group.m */; };
-		37D93CC9166E8C4000026ED5 /* DataVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D93CC8166E8C4000026ED5 /* DataVersion.m */; };
-		37D93CCC166E8C4000026ED5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D93CCB166E8C4000026ED5 /* User.m */; };
 		37D93CD0166E98FB00026ED5 /* NSManagedObject+Delete.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D93CCF166E98FB00026ED5 /* NSManagedObject+Delete.m */; };
+		75DB5C301896BF9600F481A8 /* PhoneNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DB5C2F1896BF9600F481A8 /* PhoneNumber.m */; };
+		75DB5C331896BF9600F481A8 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DB5C321896BF9600F481A8 /* Contact.m */; };
+		75DB5C361896BF9600F481A8 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DB5C351896BF9600F481A8 /* Group.m */; };
+		75DB5C391896BF9600F481A8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DB5C381896BF9600F481A8 /* User.m */; };
+		75DB5C3C1896BF9600F481A8 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DB5C3B1896BF9600F481A8 /* Address.m */; };
+		75DB5C3F1896BF9600F481A8 /* DataVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DB5C3E1896BF9600F481A8 /* DataVersion.m */; };
+		75FD44A01896B7CA0009B95D /* NSString+StringTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 75FD449F1896B7CA0009B95D /* NSString+StringTools.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +70,6 @@
 		37D93C89166E5BE200026ED5 /* NSManagedObject+TemporaryObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+TemporaryObject.h"; path = "../Sources/NSManagedObject+TemporaryObject.h"; sourceTree = "<group>"; };
 		37D93C8A166E5BE200026ED5 /* NSManagedObject+TemporaryObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+TemporaryObject.m"; path = "../Sources/NSManagedObject+TemporaryObject.m"; sourceTree = "<group>"; };
 		37D93C8C166E5C9500026ED5 /* NSManagedObject+Convenients.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+Convenients.h"; path = "../Sources/NSManagedObject+Convenients.h"; sourceTree = "<group>"; };
-		37D93C8E166E6DBA00026ED5 /* NSString+CamelCaseConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+CamelCaseConversion.h"; path = "../Sources/NSString+CamelCaseConversion.h"; sourceTree = "<group>"; };
-		37D93C8F166E6DBA00026ED5 /* NSString+CamelCaseConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+CamelCaseConversion.m"; path = "../Sources/NSString+CamelCaseConversion.m"; sourceTree = "<group>"; };
 		37D93C92166E6E6100026ED5 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
 		37D93C93166E6E6100026ED5 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		37D93C95166E6EA400026ED5 /* NSManagedObject+FromDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+FromDictionary.h"; path = "../Sources/NSManagedObject+FromDictionary.h"; sourceTree = "<group>"; };
@@ -90,15 +91,23 @@
 		37D93CBA166E895A00026ED5 /* NSManagedObject_Goodies_Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSManagedObject_Goodies_Test.h; sourceTree = "<group>"; };
 		37D93CBB166E895A00026ED5 /* NSManagedObject_Goodies_Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSManagedObject_Goodies_Test.m; sourceTree = "<group>"; };
 		37D93CBD166E895A00026ED5 /* NSManagedObject Goodies Test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject Goodies Test-Prefix.pch"; sourceTree = "<group>"; };
-		37D93CC4166E8C4000026ED5 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
-		37D93CC5166E8C4000026ED5 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
-		37D93CC7166E8C4000026ED5 /* DataVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataVersion.h; sourceTree = "<group>"; };
-		37D93CC8166E8C4000026ED5 /* DataVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataVersion.m; sourceTree = "<group>"; };
-		37D93CCA166E8C4000026ED5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		37D93CCB166E8C4000026ED5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		37D93CCD166E8CA000026ED5 /* Models.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Models.h; sourceTree = "<group>"; };
 		37D93CCE166E98FB00026ED5 /* NSManagedObject+Delete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+Delete.h"; path = "../Sources/NSManagedObject+Delete.h"; sourceTree = "<group>"; };
 		37D93CCF166E98FB00026ED5 /* NSManagedObject+Delete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+Delete.m"; path = "../Sources/NSManagedObject+Delete.m"; sourceTree = "<group>"; };
+		75DB5C2E1896BF9600F481A8 /* PhoneNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhoneNumber.h; path = ../PhoneNumber.h; sourceTree = "<group>"; };
+		75DB5C2F1896BF9600F481A8 /* PhoneNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhoneNumber.m; path = ../PhoneNumber.m; sourceTree = "<group>"; };
+		75DB5C311896BF9600F481A8 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contact.h; path = ../Contact.h; sourceTree = "<group>"; };
+		75DB5C321896BF9600F481A8 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contact.m; path = ../Contact.m; sourceTree = "<group>"; };
+		75DB5C341896BF9600F481A8 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Group.h; path = ../Group.h; sourceTree = "<group>"; };
+		75DB5C351896BF9600F481A8 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Group.m; path = ../Group.m; sourceTree = "<group>"; };
+		75DB5C371896BF9600F481A8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
+		75DB5C381896BF9600F481A8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
+		75DB5C3A1896BF9600F481A8 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Address.h; path = ../Address.h; sourceTree = "<group>"; };
+		75DB5C3B1896BF9600F481A8 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Address.m; path = ../Address.m; sourceTree = "<group>"; };
+		75DB5C3D1896BF9600F481A8 /* DataVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataVersion.h; path = ../DataVersion.h; sourceTree = "<group>"; };
+		75DB5C3E1896BF9600F481A8 /* DataVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataVersion.m; path = ../DataVersion.m; sourceTree = "<group>"; };
+		75FD449E1896B7CA0009B95D /* NSString+StringTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringTools.h"; sourceTree = "<group>"; };
+		75FD449F1896B7CA0009B95D /* NSString+StringTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringTools.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +151,8 @@
 				37D93CA2166E7D8E00026ED5 /* NSManagedObject+SyncTimestamp.m */,
 				37D93C96166E6EA400026ED5 /* NSManagedObject+FromDictionary.m */,
 				37D93C91166E6E6100026ED5 /* RegexKitLite */,
-				37D93C8E166E6DBA00026ED5 /* NSString+CamelCaseConversion.h */,
-				37D93C8F166E6DBA00026ED5 /* NSString+CamelCaseConversion.m */,
+				75FD449E1896B7CA0009B95D /* NSString+StringTools.h */,
+				75FD449F1896B7CA0009B95D /* NSString+StringTools.m */,
 				37D93C8C166E5C9500026ED5 /* NSManagedObject+Convenients.h */,
 				37D93C89166E5BE200026ED5 /* NSManagedObject+TemporaryObject.h */,
 				37D93C8A166E5BE200026ED5 /* NSManagedObject+TemporaryObject.m */,
@@ -237,13 +246,19 @@
 		37D93CC3166E8C3500026ED5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				37D93CCA166E8C4000026ED5 /* User.h */,
-				37D93CCB166E8C4000026ED5 /* User.m */,
-				37D93CC7166E8C4000026ED5 /* DataVersion.h */,
-				37D93CC8166E8C4000026ED5 /* DataVersion.m */,
-				37D93CC4166E8C4000026ED5 /* Group.h */,
-				37D93CC5166E8C4000026ED5 /* Group.m */,
 				37D93CCD166E8CA000026ED5 /* Models.h */,
+				75DB5C3D1896BF9600F481A8 /* DataVersion.h */,
+				75DB5C3E1896BF9600F481A8 /* DataVersion.m */,
+				75DB5C3A1896BF9600F481A8 /* Address.h */,
+				75DB5C3B1896BF9600F481A8 /* Address.m */,
+				75DB5C371896BF9600F481A8 /* User.h */,
+				75DB5C381896BF9600F481A8 /* User.m */,
+				75DB5C341896BF9600F481A8 /* Group.h */,
+				75DB5C351896BF9600F481A8 /* Group.m */,
+				75DB5C311896BF9600F481A8 /* Contact.h */,
+				75DB5C321896BF9600F481A8 /* Contact.m */,
+				75DB5C2E1896BF9600F481A8 /* PhoneNumber.h */,
+				75DB5C2F1896BF9600F481A8 /* PhoneNumber.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -357,20 +372,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75DB5C391896BF9600F481A8 /* User.m in Sources */,
 				37D93C76166E5B9B00026ED5 /* main.m in Sources */,
+				75DB5C3C1896BF9600F481A8 /* Address.m in Sources */,
 				37D93C7A166E5B9B00026ED5 /* AppDelegate.m in Sources */,
+				75DB5C301896BF9600F481A8 /* PhoneNumber.m in Sources */,
 				37D93C83166E5B9B00026ED5 /* Sample.xcdatamodeld in Sources */,
+				75DB5C331896BF9600F481A8 /* Contact.m in Sources */,
 				37D93C8B166E5BE200026ED5 /* NSManagedObject+TemporaryObject.m in Sources */,
-				37D93C90166E6DBA00026ED5 /* NSString+CamelCaseConversion.m in Sources */,
 				37D93C94166E6E6100026ED5 /* RegexKitLite.m in Sources */,
 				37D93C97166E6EA400026ED5 /* NSManagedObject+FromDictionary.m in Sources */,
 				37D93C9C166E7C1100026ED5 /* NSManagedObjectContext+OnelineFetch.m in Sources */,
 				37D93CA3166E7DBB00026ED5 /* NSManagedObject+SyncTimestamp.m in Sources */,
 				37D93CA6166E7F7100026ED5 /* NSManagedObject+Save.m in Sources */,
 				37D93CA9166E801700026ED5 /* NSManagedObject+FindMethods.m in Sources */,
-				37D93CC6166E8C4000026ED5 /* Group.m in Sources */,
-				37D93CC9166E8C4000026ED5 /* DataVersion.m in Sources */,
-				37D93CCC166E8C4000026ED5 /* User.m in Sources */,
+				75DB5C361896BF9600F481A8 /* Group.m in Sources */,
+				75FD44A01896B7CA0009B95D /* NSString+StringTools.m in Sources */,
+				75DB5C3F1896BF9600F481A8 /* DataVersion.m in Sources */,
 				37D93CD0166E98FB00026ED5 /* NSManagedObject+Delete.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,6 +560,7 @@
 				37D93C88166E5B9B00026ED5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37D93CBE166E895A00026ED5 /* Build configuration list for PBXNativeTarget "NSManagedObject Goodies Test" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +569,7 @@
 				37D93CC0166E895A00026ED5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

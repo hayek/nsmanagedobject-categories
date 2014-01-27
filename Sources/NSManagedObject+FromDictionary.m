@@ -7,7 +7,7 @@
 //
 
 #import "NSManagedObject+FromDictionary.h"
-#import "NSString+CamelCaseConversion.h"
+#import "NSString+StringTools.h"
 #import <objc/runtime.h>
 #import "RegexKitLite.h"
 #import "NSManagedObjectContextHolder.h"
@@ -73,10 +73,36 @@ static inline NSDate *strToDate(NSString *d) {
                 }
             }
             
-            //// 2) NSArray convert
+            //// 2) NSArray to NSData convert
             else if ([propertyAttributes hasPrefix:@"T@\"NSData\""] && [val isKindOfClass:[NSArray class]]) {
                 val = [NSKeyedArchiver archivedDataWithRootObject:val];
             }
+
+            //// 3) NSArray to Custom Class convert
+            else if ([propertyAttributes hasPrefix:@"T@\""] && [val isKindOfClass:[NSArray class]]) {
+                NSMutableArray* valArray = [NSMutableArray arrayWithCapacity:[(NSArray*)val count]];
+                for (id object in val) {
+                    if ([object isKindOfClass:[NSDictionary class]]) {
+                        NSString* fixedKey = [[key pluralToSingle] capitalizeFirstLetter];
+                        id newObject = [NSClassFromString(fixedKey) insertWithDictionary:object error:nil commit:YES];
+                        [valArray addObject:newObject];
+                        
+                        [newObject setValue:self forKey:[NSStringFromClass(self.class) lowercaseString]];
+                    }else{
+                        [valArray addObject:object];
+                    }
+                }
+                val = [NSSet setWithArray:valArray];
+                
+            }
+
+            //// 2) NSDictionary to Custom Class convert
+            else if ([propertyAttributes hasPrefix:@"T@\""] && [val isKindOfClass:[NSDictionary class]]) {
+                NSString* fixedKey = [key capitalizeFirstLetter];
+                val = [NSClassFromString(fixedKey) insertWithDictionary:val error:nil commit:YES];
+                [val setValue:self forKey:[NSStringFromClass(self.class) lowercaseString]];
+            }
+            
             [self setValue:val forKey:key];
         }
     }

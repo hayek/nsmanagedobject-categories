@@ -2,8 +2,8 @@
 //  Group.h
 //  Sample
 //
-//  Created by Jaehwa Han on 12/4/12.
-//  Copyright (c) 2012 Jaehwa Han. All rights reserved.
+//  Created by amir hayek on 1/27/14.
+//  Copyright (c) 2014 Jaehwa Han. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,8 +12,8 @@
 
 @interface Group : NSManagedObject
 
-@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSString * title;
 
 @end
