@@ -38,7 +38,7 @@ AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperation
   NSError *err;
   
   //Using categories doesn't require additional setups
-  User *user = [User insertWithDictionary:JSON error:&err];
+  User *user = [User insertWithDictionary:JSON error:&err commit:YES];];
   
   //you are good to go with `user`
   
