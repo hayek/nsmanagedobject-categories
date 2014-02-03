@@ -9,8 +9,13 @@
 #import <CoreData/CoreData.h>
 
 @interface NSManagedObject (FromDictionary)
-+ (id)insertWithDictionary:(NSDictionary *)dict error:(NSError **)error commit:(BOOL)commit;
-+ (id)insertWithDictionary:(NSDictionary *)dict uniqueKey:(NSString *)key error:(NSError **)error commit:(BOOL)commit;
+
++ (id)newWithJsonData:(NSData*)jsonData error:(NSError**)error commit:(BOOL)commit;
++ (id)newWithJsonString:(NSString*)json error:(NSError**)error commit:(BOOL)commit;
++ (id)newWithId:(id)object error:(NSError**)error commit:(BOOL)commit;
++ (id)newWithArray:(NSArray *)array error:(NSError **)error commit:(BOOL)commit;
++ (id)newWithDictionary:(NSDictionary *)dict error:(NSError **)error commit:(BOOL)commit;
++ (id)newWithDictionary:(NSDictionary *)dict uniqueKey:(NSString *)key error:(NSError **)error commit:(BOOL)commit;
 
 + (id)updateWithDictionary:(NSDictionary *)dict commit:(BOOL)commit;
 + (id)updateWithDictionary:(NSDictionary *)dict error:(NSError **)error commit:(BOOL)commit;

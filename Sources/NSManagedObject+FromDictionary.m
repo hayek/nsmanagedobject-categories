@@ -84,7 +84,7 @@ static inline NSDate *strToDate(NSString *d) {
                 for (id object in val) {
                     if ([object isKindOfClass:[NSDictionary class]]) {
                         NSString* fixedKey = [[key pluralToSingle] capitalizeFirstLetter];
-                        id newObject = [NSClassFromString(fixedKey) insertWithDictionary:object error:nil commit:YES];
+                        id newObject = [NSClassFromString(fixedKey) newWithDictionary:object error:nil commit:YES];
                         [valArray addObject:newObject];
                         
                         [newObject setValue:self forKey:[NSStringFromClass(self.class) lowercaseString]];
@@ -99,7 +99,7 @@ static inline NSDate *strToDate(NSString *d) {
             //// 2) NSDictionary to Custom Class convert
             else if ([propertyAttributes hasPrefix:@"T@\""] && [val isKindOfClass:[NSDictionary class]]) {
                 NSString* fixedKey = [key capitalizeFirstLetter];
-                val = [NSClassFromString(fixedKey) insertWithDictionary:val error:nil commit:YES];
+                val = [NSClassFromString(fixedKey) newWithDictionary:val error:nil commit:YES];
                 [val setValue:self forKey:[NSStringFromClass(self.class) lowercaseString]];
             }
             
@@ -108,7 +108,50 @@ static inline NSDate *strToDate(NSString *d) {
     }
 }
 
-+ (id)insertWithDictionary:(NSDictionary *)dict error:(NSError **)error commit:(BOOL)commit
++ (id)newWithJsonString:(NSString*)jsonString error:(NSError**)error commit:(BOOL)commit
+{
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    return [self newWithJsonData:jsonData error:error commit:commit];
+}
+
++ (id)newWithJsonData:(NSData*)jsonData error:(NSError**)error commit:(BOOL)commit;
+{
+    if ([NSJSONSerialization isValidJSONObject:jsonData]) {
+        id jsonObject = [NSJSONSerialization JSONObjectWithData: jsonData options: NSJSONReadingMutableContainers error: error];
+        
+        return [self newWithId:jsonObject error:error commit:commit];
+    }
+    
+    *error = [NSError errorWithDomain:@"NSManagedObject+FromDictionary" code:406 userInfo:[NSDictionary dictionaryWithObject:@"Invalid JSON object" forKey:@"error"]];
+    
+    return nil;
+}
+
++ (id)newWithId:(id)object error:(NSError**)error commit:(BOOL)commit
+{
+    if ([object isKindOfClass:[NSDictionary class]]) {
+        return [self newWithDictionary:object error:error commit:commit];
+    }
+
+    if ([object isKindOfClass:[NSArray class]]) {
+        return [self newWithArray:object error:error commit:commit];
+    }
+    
+    *error = [NSError errorWithDomain:@"NSManagedObject+FromDictionary" code:406 userInfo:[NSDictionary dictionaryWithObject:@"Object type not supported" forKey:@"error"]];
+    
+    return nil;
+}
+
+
++ (id)newWithArray:(NSArray *)array error:(NSError **)error commit:(BOOL)commit
+{
+    NSDictionary* dict = [NSDictionary dictionaryWithObject:array forKey:NSStringFromClass([self class])];
+   
+    return [self newWithDictionary:dict error:error commit:commit];
+}
+
++ (id)newWithDictionary:(NSDictionary *)dict error:(NSError **)error commit:(BOOL)commit
 {
     NSManagedObjectContext *context = [(id<NSManagedObjectContextHolder>)[[UIApplication sharedApplication] delegate] managedObjectContext];
     NSManagedObject *instance = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([self class]) inManagedObjectContext:context];
@@ -123,12 +166,12 @@ static inline NSPredicate *equalPredicate(NSString *key, id value) {
     return [NSPredicate predicateWithFormat:@"SELF.%K == %@", key, value];
 }
 
-+ (id)insertWithDictionary:(NSDictionary *)dict uniqueKey:(NSString *)key error:(NSError **)error commit:(BOOL)commit
++ (id)newWithDictionary:(NSDictionary *)dict uniqueKey:(NSString *)key error:(NSError **)error commit:(BOOL)commit
 {
     NSArray *arr = [self findWithPredicate:equalPredicate(key, dict[key])];
     if (arr.count == 0) {
         //insert new one
-        return [self insertWithDictionary:dict error:error commit:commit];
+        return [self newWithDictionary:dict error:error commit:commit];
     } else {
         *error = nil;
         return nil;
@@ -185,7 +228,7 @@ static inline NSPredicate *equalPredicate(NSString *key, id value) {
 
     if (arr.count == 0) {
         if (upsert) //insert new one
-            return [self insertWithDictionary:dict error:error commit:commit];
+            return [self newWithDictionary:dict error:error commit:commit];
         else {
             *error = nil;
             return nil;
@@ -207,7 +250,7 @@ static inline NSPredicate *equalPredicate(NSString *key, id value) {
     
     if (arr.count == 0) {
         if (upsert) //insert new one
-            return [self insertWithDictionary:dict error:error commit:commit];
+            return [self newWithDictionary:dict error:error commit:commit];
         else {
             *error = nil;
             return nil;

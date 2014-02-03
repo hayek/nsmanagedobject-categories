@@ -51,7 +51,7 @@
     ////
     NSDictionary *user = @{@"name": @"John Doe", @"emails":@[@"john@doe.com", @"john.doe@gmail.com"]};
     NSError *err;
-    User *u = [User insertWithDictionary:user error:&err commit:YES];
+    User *u = [User newWithDictionary:user error:&err commit:YES];
     STAssertNil(err, @"There should be no error");
     STAssertTrue(u != nil, @"User must be persisted");
     
@@ -74,7 +74,7 @@
     //// Key format conversion (under_score and camelCase) & Data conversion (NSDate)
     ////
     NSDictionary *group = @{@"title":@"My best friends", @"created_at":@(1354652336)};
-    Group *g = [Group insertWithDictionary:group error:&err commit:YES];
+    Group *g = [Group newWithDictionary:group error:&err commit:YES];
     STAssertNil(err, @"There should be no error");
     STAssertNotNil(g, @"New group should  not be nil");
     STAssertTrue([[Group findWithPredicate:nil] count] == 1, @"");
@@ -89,7 +89,7 @@
     ////
     
     NSDictionary *group2 = @{@"title":group[@"title"], @"created_at":@(1354653107)};
-    Group *g2 = [Group insertWithDictionary:group2 uniqueKey:@"title" error:&err commit:YES];
+    Group *g2 = [Group newWithDictionary:group2 uniqueKey:@"title" error:&err commit:YES];
     STAssertNil(g2, @"Duplicate key records can't be exist simultaneously");
     
     NSArray *groups = [Group findWithPredicate:nil];
@@ -147,12 +147,14 @@
                               };
     
     NSError *err;
-    Contact* contact = [Contact insertWithDictionary:contactDict error:&err commit:YES];
+    Contact* contact = [Contact newWithDictionary:contactDict error:&err commit:YES];
     STAssertNil(err, @"There should be no error");
     STAssertTrue(contact != nil, @"User must be persisted");
     
     STAssertTrue([contact.address.city isEqualToString:@"New York"], @"Wrong address");
     STAssertTrue(contact.phoneNumbers.count == 2, @"A phone number missing");
 }
+
+
 
 @end
